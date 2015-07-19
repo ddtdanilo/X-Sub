@@ -289,10 +289,19 @@ void initMPU()//Inicializa la IMU
 	byte data = 0x00; // set to zero (wakes up the MPU-6050)
 	(void)I2C_SelectSlave(MPU);
 	while(writeRegisterI2C(reg,data) != ERR_OK);
+	delay(10);
+	while(writeRegisterI2C(MPU6050_ACCEL_CONFIG,MPU6050_AFS_SEL_4G) != ERR_OK);//+-4G
+	while(writeRegisterI2C(MPU6050_GYRO_CONFIG,MPU6050_FS_SEL_1000) != ERR_OK);//+-1000º/s
 }
 
 
-
+//Obtener data de la IMU. data debe ser de tamaño 14
+void dataMPU(byte dataIn[])
+{
+	word Sent;
+	while(I2C_SendChar(0x3B) != ERR_OK);
+	while(I2C_RecvBlock(dataIn,14,&Sent) != ERR_OK);
+}
 
 
 

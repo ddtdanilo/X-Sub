@@ -76,47 +76,36 @@ void main(void)
   /* Write your code here */
   /* For example: for(;;) { } */
   //delay(5000);
-  
-  initMxSub(1);
-  
   sMCU_OK_W();
-  //sCom_In_W();
-  //sMCU_OK_NW();
-  //sCom_In_NW();
-  //sPC_OK_NW();
-  //setDC(0x19C8);
+  sCom_In_W();
+  sPC_OK_NW();
+  initMxSub(1);
+  //delay(100);
+  
   
   /**********I2C test********/
   initMPU();
-  delay(10);
-  while(writeRegisterI2C(MPU6050_ACCEL_CONFIG,MPU6050_AFS_SEL_4G) != ERR_OK);//+-4G
+  sMCU_OK_NW();
 
-  while(writeRegisterI2C(MPU6050_GYRO_CONFIG,MPU6050_FS_SEL_1000) != ERR_OK);//+-1000º/s
-
-  while(I2C_SendChar(0x3B) != ERR_OK);
-  
-  while(I2C_RecvBlock(data,14,&err) != ERR_OK);
+  //Obtener data de la IMU. data debe ser de tamaño 14
+  dataMPU(data);
  
-  (void)SerialCom_SendBlock(data,14,&err);
-  
-  (void)SerialCom_SendChar(0xAA);
-  delay(500);
+
   
   for(;;)
   {
 	  
-	  while(writeRegisterI2C(MPU6050_ACCEL_CONFIG,MPU6050_AFS_SEL_4G) != ERR_OK);//+-4G
 
-	    while(writeRegisterI2C(MPU6050_GYRO_CONFIG,MPU6050_FS_SEL_1000) != ERR_OK);//+-1000º/s
 
-	    while(I2C_SendChar(0x3B) != ERR_OK);
-	    
-	    while(I2C_RecvBlock(data,14,&err) != ERR_OK);
+	  //Obtener data de la IMU. data debe ser de tamaño 14
+	 dataMPU(data);
 	   
-	    (void)SerialCom_SendBlock(data,14,&err);
-	    
-	    (void)SerialCom_SendChar(0xAA);
-	    delay(500);
+	    //(void)SerialCom_SendBlock(data,14,&err);
+	    (void)SerialCom_SendChar(data[1]);
+	    (void)SerialCom_SendChar(data[0]);
+	    (void)SerialCom_SendChar('\0');
+	    //(void)SerialCom_SendChar(0xAA);
+	    delay(20);
 	  //I2C_RecvBlock();
 	  //I2C_SendBlock();
 	  

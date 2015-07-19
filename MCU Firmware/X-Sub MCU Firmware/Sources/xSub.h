@@ -150,5 +150,8 @@ void servoTilt1024(word In);//Resolución de 0 - 1023 (0 - 0x1023)
 
 void initMPU();//Inicializa la IMU
 
+//Obtener data de la IMU. data debe ser de tamaño 14
+void dataMPU(byte dataIn[]);
+
 
 #endif /* XSUB_H_ */
