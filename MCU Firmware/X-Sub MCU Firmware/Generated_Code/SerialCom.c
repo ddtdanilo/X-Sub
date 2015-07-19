@@ -6,7 +6,7 @@
 **     Component   : AsynchroSerial
 **     Version     : Component 02.611, Driver 01.33, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-07-15, 12:08, # CodeGen: 44
+**     Date/Time   : 2015-07-17, 22:39, # CodeGen: 54
 **     Abstract    :
 **         This component "AsynchroSerial" implements an asynchronous serial
 **         communication. The component supports different settings of
@@ -24,7 +24,7 @@
 **             Parity                  : none
 **             Breaks                  : Disabled
 **             Input buffer size       : 2
-**             Output buffer size      : 2
+**             Output buffer size      : 14
 **
 **         Registers
 **             Input buffer            : SCI1D     [0xFFFF8027]
@@ -283,7 +283,9 @@ byte SerialCom_SendChar(SerialCom_TComData Chr)
   EnterCritical();                     /* Save the PS register */
   SerialCom_OutLen++;                  /* Increase number of bytes in the transmit buffer */
   OutBuffer[OutIndxW] = Chr;           /* Store char to buffer */
-  OutIndxW = (byte)((OutIndxW + 1U) & (SerialCom_OUT_BUF_SIZE - 1U)); /* Update index */
+  if (++OutIndxW >= SerialCom_OUT_BUF_SIZE) { /* Is the index out of the buffer? */
+    OutIndxW = 0U;                     /* Set the index to the start of the buffer */
+  }
   if (EnUser) {                        /* Is the device enabled by user? */
     if (SCI1C2_TIE == 0U) {            /* Is the transmit interrupt already enabled? */
       SCI1C2_TIE = 0x01U;              /* If no than enable transmit interrupt */
@@ -382,7 +384,9 @@ byte SerialCom_SendBlock(const SerialCom_TComData * Ptr, word Size, word *Snd)
     OnFreeTxBuf_semaphore = TRUE;      /* Set the OnFreeTxBuf_semaphore to block OnFreeTxBuf calling */
     SerialCom_OutLen++;                /* Increase number of bytes in the transmit buffer */
     OutBuffer[OutIndxW] = *Ptr++;      /* Store char to buffer */
-    OutIndxW = (byte)((OutIndxW + 1U) & (SerialCom_OUT_BUF_SIZE - 1U)); /* Update index */
+    if (++OutIndxW >= SerialCom_OUT_BUF_SIZE) { /* Is the index out of the buffer? */
+      OutIndxW = 0U;                   /* Set the index to the start of the buffer */
+    }
     count++;                           /* Increase the count of sent data */
     if ((count == Size) || (SerialCom_OutLen == SerialCom_OUT_BUF_SIZE)) { /* Is the last desired char put into buffer or the buffer is full? */
       if (!local_OnFreeTxBuf_semaphore) { /* Was the OnFreeTxBuf_semaphore clear before enter the method? */
@@ -557,7 +561,9 @@ ISR(SerialCom_InterruptTx)
     SerFlag |= RUNINT_FROM_TX;         /* Set flag "running int from TX" */
     (void)SCI1S1;                      /* Reset interrupt request flag */
     SCI1D = OutBuffer[OutIndxR];       /* Store char to transmitter register */
-    OutIndxR = (byte)((OutIndxR + 1U) & (SerialCom_OUT_BUF_SIZE - 1U)); /* Update index */
+    if (++OutIndxR >= SerialCom_OUT_BUF_SIZE) { /* Is the index out of the buffer? */
+      OutIndxR = 0U;                   /* Set the index to the start of the buffer */
+    }
   } else {
     if (!OnFreeTxBuf_semaphore) {
       OnFlags |= ON_FREE_TX;           /* Set flag "OnFreeTxBuf" */

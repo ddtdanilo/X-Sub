@@ -50,6 +50,8 @@
 #include "ADC.h"
 #include "LedLight1.h"
 #include "LedLight2.h"
+#include "CS1.h"
+#include "I2C.h"
 
 
 void Aux_Int_OnInterrupt(void);

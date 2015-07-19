@@ -6,7 +6,7 @@
 **     Component   : AsynchroSerial
 **     Version     : Component 02.611, Driver 01.33, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-07-15, 12:08, # CodeGen: 44
+**     Date/Time   : 2015-07-17, 22:39, # CodeGen: 54
 **     Abstract    :
 **         This component "AsynchroSerial" implements an asynchronous serial
 **         communication. The component supports different settings of
@@ -24,7 +24,7 @@
 **             Parity                  : none
 **             Breaks                  : Disabled
 **             Input buffer size       : 2
-**             Output buffer size      : 2
+**             Output buffer size      : 14
 **
 **         Registers
 **             Input buffer            : SCI1D     [0xFFFF8027]
@@ -148,7 +148,7 @@
 #endif
 
 #define SerialCom_INP_BUF_SIZE 0x02U   /* Input buffer size */
-#define SerialCom_OUT_BUF_SIZE 0x02U   /* Output buffer size */
+#define SerialCom_OUT_BUF_SIZE 0x0EU   /* Output buffer size */
 
 extern byte SerialCom_OutLen;          /* Length of the output buffer content */
 extern byte SerialCom_InpLen;          /* Length of the input buffer content */

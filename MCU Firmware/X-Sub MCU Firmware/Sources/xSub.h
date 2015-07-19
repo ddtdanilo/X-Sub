@@ -33,6 +33,7 @@ typedef struct{
  * Variables Globales
  */
 
+extern byte data[14];
 /*STATUS*/
 extern bool led0x00; //0x00 sMCU_OK Led
 extern bool led0x01; //0x01 sCom_In Led
@@ -46,6 +47,14 @@ extern bool led0x07; //0x07
 /*Puerto Serial*/
 extern byte SIZEBUFFERIN;
 extern byte SIZEBUFFEROUT;
+
+/*I2C*/
+
+extern byte MPU6050_ACCEL_CONFIG;   // R/W
+extern byte MPU6050_AFS_SEL_4G; //Config para +-4G
+extern byte MPU6050_GYRO_CONFIG; //R/W
+extern byte MPU6050_FS_SEL_1000; //Config para +-1000º/s
+extern byte MPU;  // I2C address of the MPU-6050
 
 /*Variables*/
 extern byte  SIZEPACKAGE;
@@ -132,5 +141,14 @@ void servoTilt1024(word In);//Resolución de 0 - 1023 (0 - 0x1023)
  void setLEDPWM(word PWM);//Setea los dos leds
  void setLED1PWM(word PWM);
  void setLED2PWM(word PWM);
+ 
+ 
+ /*I2C*/
+
+ byte writeRegisterI2C(byte reg, byte data);//manera sencilla de editar un registro
+
+
+void initMPU();//Inicializa la IMU
+
 
 #endif /* XSUB_H_ */

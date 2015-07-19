@@ -75,7 +75,7 @@ void sMCU_OK_W()
 //Desactiva a sMCU_OK
 void sMCU_OK_NW()
 {
-	lStatus(0x01,FALSE);
+	lStatus(0x00,FALSE);
 }
 
 //Muestra titilando a sPC_OK
@@ -268,6 +268,28 @@ long map(long x, long in_min,long in_max,long out_min, long out_max){
 }
 
 
+/*I2C*/
+
+byte writeRegisterI2C(byte reg, byte data)//manera sencilla de editar un registro
+{
+	byte DATA[2];
+	byte MPU = 0x68;
+	word Sent;
+	byte err;
+	DATA[0] = reg; // registro a editar
+	DATA[1] = data; // data a enviar
+	err = I2C_SendBlock(DATA,2,&Sent);
+	return err;
+}
+
+void initMPU()//Inicializa la IMU
+{
+	byte err;
+	byte reg = 0x6B; // PWR_MGMT_1 register
+	byte data = 0x00; // set to zero (wakes up the MPU-6050)
+	(void)I2C_SelectSlave(MPU);
+	while(writeRegisterI2C(reg,data) != ERR_OK);
+}
 
 
 

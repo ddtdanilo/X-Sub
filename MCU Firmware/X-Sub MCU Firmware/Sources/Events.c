@@ -34,7 +34,9 @@
 /*Mis includes*/
 #include "xSub.h"
 
-
+byte err = 0;
+byte data[14];
+byte in;
 
 /*
  * Variables
@@ -162,11 +164,25 @@ void  SerialCom_OnTxChar(void)
 void RESET_INTERRUPT_OnInterrupt(void)
 {
   /* place your RESET_INTERRUPT interrupt procedure body here*/
-	setMotorSpeed1024SW(0,2);
+	//setMotorSpeed1024SW(0,2);
 	//delay(2000);
-	(void)SerialCom_SendChar(wordIn.byte[0]);
-	(void)SerialCom_SendChar(wordIn.byte[1]);
+	//(void)SerialCom_SendChar(wordIn.byte[0]);
+	//(void)SerialCom_SendChar(wordIn.byte[1]);
+	/*
+	(void)SerialCom_SendChar(data[err]);
+    (void)SerialCom_ClearTxBuf();
 
+    err++;
+    if(err == 14) err = 0;
+    */
+	sCom_In_W;
+	
+	SerialCom_SendChar(0xAA);
+	SerialCom_SendChar(0xEE);
+	
+		
+    delay(500);
+		  
 }
 
 /*
@@ -213,7 +229,7 @@ void  SerialCom_OnFullRxBuf(void)
 	//wordInByte[0] = wordIn.byte[0];
 	//wordInByte[1] = wordIn.byte[1];
 	setMotorSpeed1024SW(wordIn.word,2);
-	(void)SerialCom_SendBlock(wordIn.byte,2,&error);
+	//(void)SerialCom_SendBlock(wordIn.byte,2,&error);
 	//(void)SerialCom_SendChar(wordIn.byte[0]);
 	//(void)SerialCom_SendChar(wordIn.byte[1]);
 	(void)SerialCom_ClearRxBuf();
