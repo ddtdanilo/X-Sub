@@ -1236,11 +1236,7 @@ autoselected pull
       <Component_name v="I2C" />
       <I2C_channel v="IIC1" />
       <Mode_selection v="MASTER" />
-      <boolgroup name="Interrupt service/event" v="Enabled">
-        <Interrupt v="Viicx" />
-        <Interrupt_priority v="medium priority" />
-        <boolgroup name="Buffers for SLAVE mode" v="Disabled" />
-      </boolgroup>
+      <boolgroup name="Interrupt service/event" v="Disabled" />
       <boolgroup name="MASTER mode" v="Enabled">
         <Polling_trials v="2000" />
         <Automatic_stop_condition v="yes" />
@@ -1281,8 +1277,8 @@ autoselected pull
       <SendStop v="don&amp;apos;t generate code" />
       <ClearTxBuf v="don&amp;apos;t generate code" />
       <ClearRxBuf v="don&amp;apos;t generate code" />
-      <GetCharsInTxBuf v="generate code" />
-      <GetCharsInRxBuf v="generate code" />
+      <GetCharsInTxBuf v="don&amp;apos;t generate code" />
+      <GetCharsInRxBuf v="don&amp;apos;t generate code" />
       <SelectSlave v="generate code" />
       <GetSelected v="don&amp;apos;t generate code" />
       <GetSelected10 v="don&amp;apos;t generate code" />
@@ -1296,14 +1292,8 @@ autoselected pull
       <Event_module_name v="Events" />
       <event name="BeforeNewSpeed" v="don&amp;apos;t generate code" />
       <event name="AfterNewSpeed" v="don&amp;apos;t generate code" />
-      <event name="OnReceiveData" v="generate code">
-        <Event_procedure_name v="I2C_OnReceiveData" />
-        <Priority v="same as interrupt" />
-      </event>
-      <event name="OnTransmitData" v="generate code">
-        <Event_procedure_name v="I2C_OnTransmitData" />
-        <Priority v="same as interrupt" />
-      </event>
+      <event name="OnReceiveData" v="don&amp;apos;t generate code" />
+      <event name="OnTransmitData" v="don&amp;apos;t generate code" />
       <event name="OnByteTransfer" v="don&amp;apos;t generate code" />
       <event name="OnReadReq" v="don&amp;apos;t generate code" />
       <event name="OnWriteReq" v="don&amp;apos;t generate code" />

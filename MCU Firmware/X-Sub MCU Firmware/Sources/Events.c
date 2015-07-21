@@ -36,6 +36,7 @@
 
 byte err = 0;
 byte data[14];
+byte data2[2];
 byte in;
 
 /*

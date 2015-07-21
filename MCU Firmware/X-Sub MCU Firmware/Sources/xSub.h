@@ -34,6 +34,7 @@ typedef struct{
  */
 
 extern byte data[14];
+extern byte data2[2];
 /*STATUS*/
 extern bool led0x00; //0x00 sMCU_OK Led
 extern bool led0x01; //0x01 sCom_In Led
@@ -55,6 +56,8 @@ extern byte MPU6050_AFS_SEL_4G; //Config para +-4G
 extern byte MPU6050_GYRO_CONFIG; //R/W
 extern byte MPU6050_FS_SEL_1000; //Config para +-1000º/s
 extern byte MPU;  // I2C address of the MPU-6050
+extern byte HMC6352;
+
 
 /*Variables*/
 extern byte  SIZEPACKAGE;
@@ -152,6 +155,11 @@ void initMPU();//Inicializa la IMU
 
 //Obtener data de la IMU. data debe ser de tamaño 14
 void dataMPU(byte dataIn[]);
+
+void initHMC6352();//Inicializa la IMU
+
+//Obtener data del magnetometro. data debe ser de tamaño 2
+void dataHMC6352(byte dataIn[]);
 
 
 #endif /* XSUB_H_ */

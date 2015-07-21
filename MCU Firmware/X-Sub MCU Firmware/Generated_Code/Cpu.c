@@ -7,7 +7,7 @@
 **     Version     : Component 01.014, Driver 01.12, CPU db: 3.00.078
 **     Datasheet   : MCF51QE128RM, Rev. 3, 9/2007
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-07-17, 21:57, # CodeGen: 52
+**     Date/Time   : 2015-07-21, 17:35, # CodeGen: 59
 **     Abstract    :
 **         This component "MCF51QE128_80" contains initialization of the
 **         CPU and provides basic methods and events for CPU core
@@ -81,6 +81,7 @@
 #include "LedLight2.h"
 #include "CS1.h"
 #include "I2C.h"
+#include "PresenciaAgua.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -308,6 +309,10 @@ void PE_low_level_init(void)
   setReg8Bits(PTAPE, 0x04U);            
   /* APCTL2: ADPC10=1 */
   setReg8Bits(APCTL2, 0x04U);           
+  /* PTDPE: PTDPE0=1 */
+  setReg8Bits(PTDPE, 0x01U);            
+  /* PTDDD: PTDDD0=0 */
+  clrReg8Bits(PTDDD, 0x01U);            
   /* PTASE: PTASE7=0,PTASE6=0,PTASE4=0,PTASE3=0,PTASE2=0,PTASE1=0,PTASE0=0 */
   clrReg8Bits(PTASE, 0xDFU);            
   /* PTBSE: PTBSE7=0,PTBSE6=0,PTBSE5=0,PTBSE4=0,PTBSE3=0,PTBSE2=0,PTBSE1=0,PTBSE0=0 */
@@ -380,6 +385,7 @@ void PE_low_level_init(void)
   /* ### CriticalSection "CS1" init code ... */
   /* ### InternalI2C "I2C" init code ... */
   I2C_Init();
+  /* ### BitIO "PresenciaAgua" init code ... */
   /* Common peripheral initialization - ENABLE */
   /* TPM1SC: CLKSB=0,CLKSA=1,PS1=1,PS0=1 */
   clrSetReg8Bits(TPM1SC, 0x10U, 0x0BU); 

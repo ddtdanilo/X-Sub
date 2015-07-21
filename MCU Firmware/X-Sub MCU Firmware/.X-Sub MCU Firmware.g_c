@@ -38,7 +38,7 @@
         <Line>Project_Settings\Linker_Files\ProcessorExpert.lcf</Line>
         <Line>Generated_Code\Vectors.c</Line>
       </GenExtraFiles>
-      <XtraAge1>1190305051</XtraAge1>
+      <XtraAge1>1190497394</XtraAge1>
       <GenExtraFileType1>4</GenExtraFileType1>
       <GenLinkedFiles lines_count="0" />
       <GenEventModules lines_count="1">
@@ -53,7 +53,7 @@
         <Line>SerialCom_OnFreeTxBuf</Line>
         <Line>Aux_Int_OnInterrupt</Line>
       </GenMethodsInEvents>
-      <GenAllModules lines_count="24">
+      <GenAllModules lines_count="25">
         <Line>ADC</Line>
         <Line>Aux_Int</Line>
         <Line>Cpu</Line>
@@ -71,6 +71,7 @@
         <Line>PE_Error</Line>
         <Line>PE_Timer</Line>
         <Line>PE_Types</Line>
+        <Line>PresenciaAgua</Line>
         <Line>RESET_INTERRUPT</Line>
         <Line>S_PanCamera</Line>
         <Line>S_TiltCamera</Line>
@@ -80,7 +81,7 @@
         <Line>sPC_OK</Line>
       </GenAllModules>
       <GenExternModules lines_count="0" />
-      <GenBeanModules lines_count="17">
+      <GenBeanModules lines_count="18">
         <Line>M1_ESC</Line>
         <Line>M2_ESC</Line>
         <Line>M3_ESC</Line>
@@ -98,11 +99,12 @@
         <Line>LedLight2</Line>
         <Line>CS1</Line>
         <Line>I2C</Line>
+        <Line>PresenciaAgua</Line>
       </GenBeanModules>
     </GenFiles>
     <SignalListFile>Documentation\X-Sub MCU Firmware_SIGNALS.txt</SignalListFile>
     <DestinationCompiler>CodeWarriorColdFireV1</DestinationCompiler>
-    <ProjectModificationStamp>50</ProjectModificationStamp>
+    <ProjectModificationStamp>52</ProjectModificationStamp>
   </Options>
   <CpuID_4>
     <Generated>true</Generated>
@@ -111,7 +113,7 @@
     <GenDriverVersion>01.12</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
     <HeaderAge>1190080842</HeaderAge>
-    <CodeAge>1190244144</CodeAge>
+    <CodeAge>1190497394</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>19</GenNumMethods>
     <SetHighSpeed>false</SetHighSpeed>
@@ -2586,6 +2588,47 @@
     </MethodPos>
     <GenExtraFilesCount>0</GenExtraFilesCount>
   </ComponentID_77>
+  <ComponentID_88>
+    <Generated>true</Generated>
+    <GenCompName>PresenciaAgua</GenCompName>
+    <GenComponentVersion>02.086</GenComponentVersion>
+    <GenDriverVersion>03.14</GenDriverVersion>
+    <GenEventModule />
+    <HeaderAge>1190497393</HeaderAge>
+    <CodeAge>1190497393</CodeAge>
+    <AsemblAge>-1</AsemblAge>
+    <GenNumMethods>10</GenNumMethods>
+    <GetDir>false</GetDir>
+    <SetDir>false</SetDir>
+    <SetInput>false</SetInput>
+    <SetOutput>false</SetOutput>
+    <GetVal>true</GetVal>
+    <PutVal>false</PutVal>
+    <ClrVal>false</ClrVal>
+    <SetVal>false</SetVal>
+    <NegVal>false</NegVal>
+    <GetRawVal>false</GetRawVal>
+    <GenNumEvents>0</GenNumEvents>
+    <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
+    <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
+    <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
+    <GenMethodPos>2</GenMethodPos>
+    <MethodPos>
+      <MethodPos0>GetVal</MethodPos0>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>99</LineBeg>
+      <LineEnd>119</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos1>GetVal</MethodPos1>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>97</LineBeg>
+      <LineEnd>119</LineEnd>
+    </MethodPos>
+    <GenExtraFilesCount>0</GenExtraFilesCount>
+  </ComponentID_88>
   <UsedSrcFiles>
     <SrcFile0>Drivers\ColdFireV1\BitIO.drv=1116866294</SrcFile0>
     <SrcFile1>Drivers\Common\ADCGetValue8.inc=1146382935</SrcFile1>

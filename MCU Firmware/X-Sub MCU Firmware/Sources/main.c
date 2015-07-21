@@ -50,6 +50,7 @@
 #include "LedLight2.h"
 #include "CS1.h"
 #include "I2C.h"
+#include "PresenciaAgua.h"
 /* Include shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"
@@ -80,16 +81,14 @@ void main(void)
   sCom_In_W();
   sPC_OK_NW();
   initMxSub(1);
-  //delay(100);
+ //delay(100);
   
   
   /**********I2C test********/
-  initMPU();
+  //initMPU();
+  initHMC6352();
   sMCU_OK_NW();
 
-  //Obtener data de la IMU. data debe ser de tamaño 14
-  dataMPU(data);
- 
 
   
   for(;;)
@@ -98,11 +97,12 @@ void main(void)
 
 
 	  //Obtener data de la IMU. data debe ser de tamaño 14
-	 dataMPU(data);
+	 //dataMPU(data);
+	 dataHMC6352(data2);
 	   
 	    //(void)SerialCom_SendBlock(data,14,&err);
-	    (void)SerialCom_SendChar(data[1]);
-	    (void)SerialCom_SendChar(data[0]);
+	    (void)SerialCom_SendChar(data2[0]);
+	    (void)SerialCom_SendChar(data2[1]);
 	    (void)SerialCom_SendChar('\0');
 	    //(void)SerialCom_SendChar(0xAA);
 	    delay(20);

@@ -311,6 +311,11 @@ Module "I2C"       (component InternalI2C)
                 method directs to or from selected device, until a new slave device is selected by this method. This method is 
                 not available for the SLAVE mode.
 
+Module "PresenciaAgua" (component BitIO)
+   - PresenciaAgua_GetVal -Returns the input/output value. If the direction is [input] then the input value of the pin is read 
+                and returned. If the direction is [output] then the last written value is returned (see <Safe mode> property 
+                for limitations). This method cannot be disabled if direction is [input].
+
 Module "Cpu"       (component MCF51QE128_80)
    - Cpu_EnableInt -Enables maskable interrupts
    - Cpu_DisableInt -Disables maskable interrupts

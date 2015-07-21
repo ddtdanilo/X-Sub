@@ -299,11 +299,27 @@ void initMPU()//Inicializa la IMU
 void dataMPU(byte dataIn[])
 {
 	word Sent;
+	(void)I2C_SelectSlave(MPU);
 	while(I2C_SendChar(0x3B) != ERR_OK);
 	while(I2C_RecvBlock(dataIn,14,&Sent) != ERR_OK);
 }
 
+void initHMC6352()//Inicializa la IMU
+{
+	byte err;
+	byte reg = 0x6B; // PWR_MGMT_1 register
+	byte data = 0x00; // set to zero (wakes up the MPU-6050)
+	(void)I2C_SelectSlave(HMC6352);
+}
 
+//Obtener data del magnetometro. data debe ser de tamaño 2
+void dataHMC6352(byte dataIn[])
+{
+	word Sent;
+	(void)I2C_SelectSlave(HMC6352);
+	while(I2C_SendChar('A') != ERR_OK){(void)SerialCom_SendChar(0xFF);};
+	while(I2C_RecvBlock(dataIn,2,&Sent) != ERR_OK);
+}
 
 
 
