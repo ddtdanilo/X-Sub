@@ -85,7 +85,7 @@ void main(void)
   
   
   /**********I2C test********/
-  //initMPU();
+  initMPU();
   initHMC6352();
   sMCU_OK_NW();
 
@@ -97,13 +97,16 @@ void main(void)
 
 
 	  //Obtener data de la IMU. data debe ser de tamaño 14
-	 //dataMPU(data);
+	 dataMPU(data);
 	 dataHMC6352(data2);
 	   
 	    //(void)SerialCom_SendBlock(data,14,&err);
 	    (void)SerialCom_SendChar(data2[0]);
 	    (void)SerialCom_SendChar(data2[1]);
-	    (void)SerialCom_SendChar('\0');
+	    (void)SerialCom_SendChar(0xFE);
+	    (void)SerialCom_SendChar(data[0]);
+	    (void)SerialCom_SendChar(data[1]);
+	    (void)SerialCom_SendChar(0xFF);
 	    //(void)SerialCom_SendChar(0xAA);
 	    delay(20);
 	  //I2C_RecvBlock();
