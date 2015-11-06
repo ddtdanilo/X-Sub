@@ -77,7 +77,7 @@ AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=-1
+AnnotateOrder=2
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -94,7 +94,7 @@ AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=-1
+AnnotateOrder=4
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -128,7 +128,7 @@ AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=-1
+AnnotateOrder=5
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -145,7 +145,7 @@ AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=-1
+AnnotateOrder=3
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -190,23 +190,6 @@ GenerateClassCluster=0
 DocumentUniqueId=MEFCVTAT
 
 [Document10]
-DocumentPath=LOGOS.PcbDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=ONPYDVYQ
-
-[Document11]
 DocumentPath=MCU.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -223,7 +206,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=PESOASAO
 
-[Document12]
+[Document11]
 DocumentPath=X-Sub_Board.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -241,22 +224,26 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [GeneratedDocument1]
-DocumentPath=Project Outputs for X-Sub_Board\Design Rule Check - MCU.html
+DocumentPath=Project Outputs for X-Sub_Board\Board Information - MCU.html
 DItemRevisionGUID=
 
 [GeneratedDocument2]
-DocumentPath=Project Outputs for X-Sub_Board\MCU.EXTREP
+DocumentPath=Project Outputs for X-Sub_Board\Design Rule Check - MCU.html
 DItemRevisionGUID=
 
 [GeneratedDocument3]
-DocumentPath=Project Outputs for X-Sub_Board\MCU.GD1
+DocumentPath=Project Outputs for X-Sub_Board\MCU.EXTREP
 DItemRevisionGUID=
 
 [GeneratedDocument4]
-DocumentPath=Project Outputs for X-Sub_Board\MCU.REP
+DocumentPath=Project Outputs for X-Sub_Board\MCU.GD1
 DItemRevisionGUID=
 
 [GeneratedDocument5]
+DocumentPath=Project Outputs for X-Sub_Board\MCU.REP
+DItemRevisionGUID=
+
+[GeneratedDocument6]
 DocumentPath=Project Outputs for X-Sub_Board\MCU.RUL
 DItemRevisionGUID=
 
@@ -288,7 +275,7 @@ TemplateFilename=Board Stack Report.XLT
 TemplateStoreRelative=-1
 PCB_PrintColor=1
 SCH_PrintColor=0
-PrintQuality=-3
+PrintQuality=-4
 SCH_ShowNoErc=-1
 SCH_ShowParameter=-1
 SCH_ShowProbes=-1
@@ -589,7 +576,7 @@ OutputName1=Assembly Drawings
 OutputDocumentPath1=
 OutputVariantName1=[No Variations]
 OutputDefault1=0
-PageOptions1=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=2.69|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
+PageOptions1=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=2.53|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=15|PrintQuality=600|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=Letter|PaperIndex=119
 Configuration1_Name1=OutputConfigurationParameter1
 Configuration1_Item1=DesignatorDisplayMode=Physical|PrintArea=DesignExtent|PrintAreaLowerLeftCornerX=0|PrintAreaLowerLeftCornerY=0|PrintAreaUpperRightCornerX=0|PrintAreaUpperRightCornerY=0|Record=PcbPrintView
 Configuration1_Name2=OutputConfigurationParameter2
