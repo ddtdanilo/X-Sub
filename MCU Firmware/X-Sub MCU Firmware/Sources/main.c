@@ -99,7 +99,7 @@ void main(void)
   
   for(;;)
   {
-	  
+	  /*
 	  wordbyte Temp;
 	  //Temp.word = awakeAndGetTemp();
 	  byte tempLSB = 0;
@@ -132,6 +132,7 @@ void main(void)
 	    	  Temp.word = 0xF0FA;}
 	  
 	  (void)SerialCom_SendChar(tempCelsius);
+	  */
 	  //Obtener data de la IMU. data debe ser de tamaño 14
 	 //dataMPU(data);
 	 //dataHMC6352(data2);
